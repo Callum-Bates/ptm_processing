@@ -1,0 +1,90 @@
+# =====================================================================
+# SNO project .gitignore
+# Rule of thumb: git tracks CODE and small config. Data and results are
+# regenerated from code + raw files, and raw files are recorded by source
+# (paper / URL) in the README or datasets registry, not committed.
+# =====================================================================
+ 
+# ---------------------------------------------------------------------
+# Data folders (covers both the current layout and a future data/ root)
+# The "/*" + "!.gitkeep" pattern keeps the empty folder in the repo so the
+# structure exists after cloning, while ignoring everything inside it.
+# ---------------------------------------------------------------------
+/raw/*
+!/raw/.gitkeep
+/processed/*
+!/processed/.gitkeep
+/data/*
+!/data/.gitkeep
+/results/*
+!/results/.gitkeep
+/images/*
+!/images/.gitkeep
+ 
+# ---------------------------------------------------------------------
+# Data file types anywhere in the repo (safety net for stray files,
+# e.g. the .pepidx, FASTAs and CSVs currently inside processing_scripts/)
+# ---------------------------------------------------------------------
+# sequences and indexes
+*.fasta
+*.fa
+*.faa
+*.fasta.gz
+*.gz
+*.pepidx
+*.dmnd
+ 
+# tables and spreadsheets
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.json
+*.txt
+ 
+# tool outputs
+*.clstr
+work/
+ 
+# figures
+*.png
+*.pdf
+*.svg
+ 
+# ...but keep small files that ARE part of the code
+!requirements.txt
+!environment.yml
+!**/tests/data/**
+!pyproject.toml
+!*.yaml
+!*.yml
+ 
+# ---------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+ 
+# virtual environments
+.venv/
+venv/
+env/
+ 
+# ---------------------------------------------------------------------
+# Jupyter
+# ---------------------------------------------------------------------
+.ipynb_checkpoints/
+ 
+# ---------------------------------------------------------------------
+# Editors, OS, secrets
+# ---------------------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.env
